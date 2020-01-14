@@ -1,0 +1,367 @@
+\documentclass[]{report}
+
+\usepackage{natbib} 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{float}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{amsthm}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tocloft}
+\usepackage{csquotes}
+\usepackage{needspace}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage[stable, bottom]{footmisc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{ifthen}
+\usepackage{hevea}
+
+\usepackage{biblatex}
+\addbibresource{bibl.bib}
+
+\newboolean{footer}
+\setboolean{footer}{false}
+\loadcssfile{https://rawcdn.githack.com/dreampulse/computer-modern-web-font/d4bab419235a7ea4a3e8ab7584112ef73e16c1dc/fonts.css}
+\loadcssfile{main.css}
+%HEVEA\renewcommand{\needspace}[1]{}%
+\colorlet{DarkBlue}{blue!20!black!90}
+\definecolor{gray}{rgb}{0.5, 0.5, 0.5}
+
+\newcommand{\includeimage}[2][]{%
+\imgsrc{#2}
+\begin{latexonly}
+    \includegraphics[#1]{#2}
+\end{latexonly}
+}
+
+\setlist{listparindent=\parindent}
+\setlength{\parskip}{1em}
+\renewcommand\cellgape{\Gape[6pt]}
+
+\newcommand{\todo}[1]{{\color{red}\textbf{À faire:} #1}}
+\newcommand{\reftx}[1]{{\color{gray}[#1]}}
+\newcommand{\rem}[0]{\textbf{Remarque:}}
+\newcommand{\refannexe}[1]{\hyperref[#1]{\textbf{Texte~\ref{#1}}}}
+\theoremstyle{definition}
+\newtheorem{annexetexte}{Texte}
+
+\newenvironment{texte}[2]{\begin{annexetexte}
+        \needspace{.1\textheight}
+        \label{#1}
+        \addcontentsline{toc}{subsection}{\texorpdfstring{\hyperref[#1]{#2}}{#2}}
+        \textbf{#2}\par
+}{\end{annexetexte}}
+
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{(\emph{\alph{subsubsection}})}
+\renewcommand{\theannexetexte}{\arabic{annexetexte}}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\setlength{\cftchapnumwidth}{2.3cm}
+\renewcommand{\cftchappresnum}{\chaptername\ }
+\renewcommand{\cftchapaftersnum}{ :}
+
+\setlength{\cftsecnumwidth}{0.7cm}
+\renewcommand{\cftsecpresnum}{}
+\renewcommand{\cftsecaftersnum}{ -- }
+
+\setlength{\cftsubsecnumwidth}{0.6cm}
+\renewcommand{\cftsubsecpresnum}{}
+\renewcommand{\cftsubsecaftersnum}{ -- }
+
+\setlength{\cftsubsubsecnumwidth}{0.9cm}
+\renewcommand{\cftsubsubsecpresnum}{}
+\renewcommand{\cftsubsubsecaftersnum}{ -- }
+
+\definecolor{light-gray}{gray}{0.7}
+\definecolor{dark-gray}{gray}{0.2}
+\renewcommand{\cftdot}{{\color{light-gray}.}}
+
+\renewcommand{\textquote}[1]{{«~\color{DarkBlue}#1~»}}
+%HEVEA\renewcommand{\textquote}[1]{{« #1 »}}%
+
+\title{Travaux Personels Encadrés}
+\author{Hugo Lageneste}
+\date{}
+\begin{document}
+
+%BEGIN LATEX
+\begin{titlepage}
+
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+    \center
+
+    \textsc{\LARGE Lycée Madame de Stäel}\\[1.5cm]
+
+    \HRule \\[0.4cm]
+    {\huge \bfseries Le Physarum Polycephalum  }\\[0.1cm]
+    \HRule \\[0.4cm]
+    \textsc{\large Travaux Personels Encadrés}\\[1.5cm]
+
+    {\large Clément \textsc{Polycarpe}}\\
+    {\large Hugo \textsc{Lageneste}}\\
+    {\large Bernard-Raphaël \textsc{Mermet}}\\[0.5cm]
+    
+    {\large Année 2019-2020}\\
+    \vfill
+    \includeimage[width=15cm]{physarum-polycephalum.jpg}\\[1cm]
+    \vfill
+\end{titlepage}
+
+\begingroup
+\let\cleardoublepage\relax
+\let\clearpage\relax
+%END LATEX
+\tableofcontents
+%BEGIN LATEX
+
+\needspace{6cm}
+\[\;\]
+
+\vfill
+
+%END LATEX
+
+%BEGIN LATEX
+\endgroup
+%END LATEX
+
+\setcounter{chapter}{-1}
+\chapter*{Travaux Personels Encadrés}
+
+\setcounter{section}{-1}
+\section{Introduction générale}
+
+{Bien que nos idées furent multiples, la recherche d’un sujet propice à la rédaction d’un TPE fût fastidieuse. Suite à de nombreuses heures de recherches hors heures scolaires, nous nous sommes penchés sur le cas d’une créature aux multiples secrets, le \textit{Physarum Polycephalum} dont nous avions découvert l’existence quelques mois plus tôt.
+C’est donc ce sujet que nous avons finalement décidé d’étudier pour notre TPE.
+Au cours de ces mois de recherches et expériences nous avons tenté de répondre à la problématique suivante : \textbf{Est-il possible de modéliser le comportement d’un être vivant sous forme informatique ?}}
+
+\section{Histoire et vie du \textit{Physarum Polycephalum}}
+\subsection{Définition}
+{Le \textit{Physarum Polycephalum} est un être vivant unicellulaire présent dans la nature et plus particulièrement dans les sous bois \cite{wikipedia} (zones fraîches et humides telles que les tapis de feuilles des forêts ou le bois mort), sous forme de mousse.}
+
+\begin{figure}[H]
+    \centering
+    \includeimage[height=5cm]{physarum-polycephalum-bois.jpg}
+    \caption{Le \textit{Physarum Polycephalum} accroché à une branche d'arbre}
+\end{figure}
+
+{Bien que cet être puisse nous paraître totalement inconnu, nous en rencontrons bien plus que ce que nous croyons, et celui-ci peut apparaître sous plusieurs couleurs comme notamment le bleu, le rose, le jaune ou même le blanc. De plus il existe environ 1000 espèces, aussi appelées « blobs » qui varient aussi bien de couleur que de forme \cite{blob}. 
+Il se développe et se nourrit en fonction des champignons présents sur son passage. Il se déplace à une vitesse qui peut varier entre 1 et \(3cm\) par heure. Techniquement, il n’a aucune limite de développement en terme de superficie, mais les scientifiques ayant expérimentés ses capacités pensent qu’il peut se développer sur une surface de \(10m^2\) maximum. C’est une surface considérable pour une créature unicellulaire sans cerveau.}\\
+{Ce dernier est immortel et découpable à l’infini (ce qui nous permettra par la suite  de développer énormément de souches afin de multiplier les expériences). Il s’agit d’un myxomycète \cite{wikipedia} qui se traduit en grec « champignon gluant », à un seul détail près: ce n’est ni un champignon, ni un animal, ni une plante, mais simplement un être unicellulaire.}\\
+{Le \textit{Physarum Polycephalum} peut être comparé à un papillon dans son cycle de renouvellement. Il crée des spores qui expulsent les gamètes lorsqu’il est exposé à la lumière dans le but de produire d’autres cellules qui se multiplieront par la suite jusqu’à former le Blob. Il est considéré comme unicellulaire du fait que ses nombreux noyaux de cellules sont tous contenus dans le cytoplasme sans séparations.}
+
+\begin{figure}[H]
+    \centering
+    \includeimage[height=10cm]{physarum-polycephalum-cycle.jpg}
+    \caption{Schéma du cycle d'évolution du \textit{Physarum Polycephalum}}
+\end{figure}
+
+{Le nom de Blob n’est qu’un alias de \textit{Physarum Polycephalum}, qui provient du film de l’acteur américain Steve Mcqueen, \textit{The Blob, 1988}. La créature présente dans ce long-métrage rappelait aux chercheurs le \textit{Physarum Polycephalum}.}
+
+\begin{figure}[H]
+    \centering
+    \includeimage[height=5cm]{the-blob.jpeg}
+    \caption{Affiche du film \textit{The Blob, 1998}}
+\end{figure}
+
+{Nous ne trouvions malheureusement pas assez d’informations ou d’expériences à son sujet sur la toile pour correctement répondre à notre problématique. Nous devions en savoir plus sur sa façon de vivre. C’est pourquoi nous avons dû d’abord nous procurer un Blob de manière à pouvoir approfondir nos connaissances sur ses différentes capacités ou aptitudes introuvables sur internet. }
+
+\subsection{Nos recherches et questionnements}
+
+{En effet, bien qu’internet soit un moteur de recherche extrêmement riche et varié en informations, très peu de rubriques sont dédiées au Blob car ce dernier a été découvert ou plutôt étudié il y a très peu de temps. La seule solution pour étudier son fonctionnement était d’en posséder un, c’est ainsi que nous avons passé commande auprès d’un laboratoire spécialisé afin d’obtenir des souches que nous allions pouvoir mettre en culture et étudier par la suite.}\\
+{Le Blob ne se procure que sur des sites spécialisés. Nous avons donc acheté nos souches sur Sordalab, un site de fournitures pour l’enseignement scientifique fondé par Patrick \textsc{Moreau}, un enseignant-chercheur au CNRS (Centre National de Recherches Scientifiques) à l’Université d’Orsay Paris Sud.}\\
+{Dans le “kit” que nous avons reçu, il se trouve des souches de \textit{Physarum Polycephalum} déshydratées, 100g de gélose, des boîtes de pétri ainsi que des flocons d’avoines stériles. 
+Nous cherchions à appréhender le mieux possible la venue du \textit{Physarum Polycephalum} et notre curiosité nous a poussé à plusieurs reprises à questionner une scientifique qui étudie le Blob, Audrey \textsc{Dussutour}.
+Cette scientifique travaille au CNRS. C’est l'un des centres de recherche les plus réputés au monde. Il s’agut de la seule chercheuse en France dont la spécialité est le \textit{Physarum Polycephalum}. 
+Nous nous devions de faire croître notre Physarum Polycephalum de manière optimale et par conséquent nos premières questions portèrent sur son mode de vie: comment amorcer son développement? comment le stopper?
+Cet entretien s’est fait par mail avec la chercheuse et nous a permis d'acquérir de nouvelles connaissances sur le \textit{Physarum Polycephalum}. Nous pouvons donc commencer sa mise en culture dans les meilleures conditions possibles.}
+
+\subsection{Préparation}
+
+{Nous avons tout d’abord préparé la gélose dans une casserole. Il s’agit d’un mélange d’eau chaude et d’ agar agar qui est un gélifiant végétal.
+Le blob endormi sur du papier filtre, appelé sclérote, a été ensuite posé sur la gélose, le tout dans une boîte de pétri, à l’abri de la lumière.}\\
+{Comme tout être vivant, le blob a besoin de nourriture pour se développer.
+Ainsi, nous avons placé dans la boîte de pétri des flocons d’avoine stérilisés.}\\
+{Pour l’endormir, il faut simplement le laisser à l’obscurité et sans humidité sur un morceau de papier filtre pendant une semaine, il va ainsi s’assécher et revenir dans l’état dans lequel nous l’avons reçu, une sclérote. Son environnement naturel est très humide, et s’il sort de cette humidité constante, il « meurt » en quelque sorte, c’est pour cela que la gélose fournie est primordiale pour sa culture.}
+
+\begin{figure}[H]
+    \centering
+    \includeimage[height=5cm]{physarum-polycephalum-debut.jpg}
+    \caption{Préparation d'un \textit{Physarum Polycephalum} après 6 heures. Au centre se trouve la sclérote, autour sont les flocons d'avoie le tout sur une gélose.}
+\end{figure}
+
+{Jours après jours, semaines après semaines, les différents échantillons n’ont cessés de se développer. Ils commençaient à prendre un aspect visuel très esthétique, chose qui nous était impossible d’observer les premiers jours du fait du temps que le Blob prend à se « réveiller ». Nous avons donc pu observer les longs « bras » qui composent cet être fascinant.}\\
+{Le \textit{Physarum Polycephalum} se développe tellement rapidement qu’avant de partir en vacances ou week-end, il fallait prendre des précautions et scotcher les différentes boîtes de pétri afin qu’il ne s’échappe pas !}
+
+\subsection{Un liquide surprenant}
+
+{À partir d’un certain stade de développement, nous avons décidé d’emporter un échantillon avec nous au lycée pour pouvoir encore mieux l’étudier avec l’aide du matériel que nous ne possédions pas chez nous et pouvoir avoir l’avis de certains professeurs.}\\
+{Nous avons choisi de l’observer au microscope pour en découvrir d’avantage.  
+Nous avons donc décidé d’observer directement la boîte de pétri contenant le \textit{Physarum Polycephalum} à l’aide d’une loupe binoculaire, ce qui paraissait le moyen le plus simple et efficace. Et c’est là que nous avons remarqué qu’un liquide circulait dans de sortes de bras, les “veines“ du Blob.}\\
+{Notre première hypothèse fut qu’il s’agissait de son sang.}\\
+{Il s’agit d’un liquide qui alimente tout son organisme. De surcroît, nous avons remarqué que ce liquide changeait de sens assez rapidement, environ toutes les 30 secondes. 
+Nous avons filmé puis observé ce fameux déplacement de liquide. Cette découverte en direct nous paraissait exceptionnelle et donnait encore plus d’intérêt à notre Blob. 
+Ce liquide découvert est en réalité du cytoplasme qui se déplace dans toute la cellule, dans tout le blob. Il est nécessaire au développement du blob puisque c’est grâce à des contractions de couches membraneuses que ce cytoplasme peut parcourir toute la cellule et donc permettre au blob de se développer. C’est ainsi que cet être vivant se développe « à l’infini ». (explication détaillée dans le B).}
+
+\begin{figure}[H]
+    \centering
+    \includeimage[height=5cm]{sang-blob.JPG}
+    \caption{Circulation du cytoplasme à l'intérieur du \textit{Physarum Polycephalum}}
+\end{figure}
+
+{Grâce aux connaissances acquises, nous avons désormais quelques issues possibles dans le cadre de nos expériences de manière à se rapprocher le plus possible de notre problématique et y répondre précisément.}
+
+\section{Expérimentations dans un labyrinthe}
+
+{L’idée de faire une expérience incluant un labyrinthe nous est venue après de nombreuses recherches sur Internet. Le principe est simple : placer le \textit{Physarum Polycephalum} dans un labyrinthe conçu au préalable et faire en sorte que celui-ci trouve le chemin le plus court afin de relier un point A et un point B.}
+
+\subsection{Conception}
+
+{Pour ce faire il a fallu en premier lieu concevoir et réaliser un labyrinthe. 
+Pour cela nous avons dessiné les plans à la main, format papier, afin d’avoir une idée concrète de la forme que celui-ci devrait avoir. Ensuite, nous sommes passés à la phase de réalisation et nous nous sommes servis du logiciel Design Spark Mechanical mis à notre disposition sur les ordinateurs du lycée. Après une rapide formation à l’utilisation de ce type de logiciels de CAO (Conception Assistée par Ordinateur), nous avons commencé sa réalisation. 
+Nous avions besoin d’un labyrinthe suffisamment grand pour accueillir le Blob et suffisamment petit afin que ce dernier se déplace rapidement. }
+
+\begin{figure}[H]
+    \centering
+    \includeimage[height=5cm]{labyrinthe.png}
+    \caption{Modèle du labyritnhe en 3 dimensions}
+\end{figure}
+
+{Nous avons donc réalisé un labyrinthe de 6 cm par 6 cm. Nous avons choisi un tracé simple, avec deux chemins possibles. }\\
+{Après la partie dessin, nous avons imprimé le labyrinthe grâce à l’imprimante 3D du lycée. L’impression a duré 3 heures, le résultat est très satisfaisant, très solide et répond parfaitement à nos attentes. }
+
+\begin{figure}[H]
+    \centering
+    \includeimage[height=5cm]{labyrinthe-photo.png}
+    \caption{Le labyrinthe après impression}
+\end{figure}
+
+\subsection{Expérience}
+
+\subsubsection{Réalisation}
+
+{Pour réaliser cette expérience nous nous sommes servis d’une souche de \textit{Physarum Polycephalum} cultivée au préalable que nous avons coupé en plusieurs morceaux extraits de la boîte de pétri dans laquelle elle était en culture. Ensuite, il a fallu couler la gélose (coulée juste avant) dans le fond du labyrinthe.}
+
+\begin{figure}[H]
+    \centering
+    \includeimage[height=5cm]{souche-blob.JPG}
+    \caption{Souche de \textit{Physarum Polycephalum} utilisée pour l'expérience du labyrinthe}
+\end{figure}
+
+{Après une dizaine de minutes et après que la gélose ai refroidi, nous avons pu placer les « morceaux » de\textit{Physarum Polycephalum} en plusieurs endroits du labyrinthe. (Sur les images le Blob est accroché à des morceaux de flocons d’avoines, sans ceux-ci il aurait été impossible d'extraire le blob de la préparation de départ car il est mou).}
+
+\begin{figure}[H]
+    \centering
+    \includeimage[height=5cm]{laby1.png}
+    \caption{Flocons d'avoine dont le \textit{Physarum Polycephalum} s'est imprégné dans le labyrinthe}
+\end{figure}
+
+{Ensuite, une fois toutes ces étapes achevées, nous avons placé la préparation à l’abri de la lumière. }\\
+{Nous avons laissé le Blob se développer dans tout le labyrinthe pendant une demi-journée afin que ce dernier occupe la totalité du labyrinthe. Nous avons ensuite ôté les morceaux de flocons d’avoines précédents afin qu’il n’y ai plus que le \textit{Physarum Polycephalum} à l’intérieur du labyrinthe.}
+
+\begin{figure}[H]
+    \centering
+    \includeimage[height=5cm]{laby2.png}
+    \caption{Labyrinthe où le \textit{Physarum Polycephalum} s'est développé}
+\end{figure}
+
+{Par la suite nous avons placé quelques flocons d’avoine au point A et au point B. Le \textit{Physarum Polycephalum} a commencé à créer ses réseaux et à former un chemin de plus en plus gros. On peut observer d’autres ramifications mais ces dernières restent négligeables car leur taille est insignifiante à côté de la branche principale qui est deux à trois fois plus grosse en largeur. }
+
+\begin{figure}[H]
+    \centering
+    \includeimage[height=5cm]{laby3.png}
+    \caption{Labyrinthe où le \textit{Physarum Polycephalum} a conservé uniquement son artère sur le chemin le plus court}
+\end{figure}
+
+\subsubsection{Interprétation des données}
+
+{Le chemin formé par le \textit{Physarum Polycephalum} est bel et bien le plus court pour relier les deux points.}\\
+{Pour former le chemin le plus court, il a parcouru la totalité du labyrinthe à la recherche du chemin le plus optimal. Une fois celui-ci trouvé, il a concentré ses ramifications dans cette direction sans se soucier du reste qui, soit ne menait à rien, soit était plus long. Il n’est jamais passé deux fois au même endroit.}\\
+{Afin d’être sûr que ce phénomène ne s’est pas produit par hasard nous avons réalisé une deuxième fois l’expérience en reprenant chaque étape une à une. Comme la première fois, \textit{Physarum Polycephalum} a choisi le chemin le plus court pour relier les deux points.
+Cette deuxième réalisation nous a permis de confirmer les résultats obtenus lors de la première et d’avoir une confirmation de l’expérience.}
+
+\subsubsection{Explications}
+
+{Le déplacement du \textit{Physarum Polycephalum} est lié à un courant cytoplasmique appelé « shuttle streaming » en Anglais, évoquant le va-et-vient d'une navette (shuttle signifie navette en Anglais). Ce shuttle streaming est caractérisé par un changement de direction d’avant en arrière du flux de cytoplasme, avec un intervalle de temps d'environ 30 secondes.}\\
+{À l’intérieur des plasmodes (masse de cytoplasme molle, déformable, sans paroi squelettique, dans laquelle le noyau s'est divisé un grand nombre de fois sans qu'il y ait eu de cloisonnement par des membranes plasmiques), la force motrice est générée par la contraction suivie de la relaxation de couches membraneuses probablement constituées d’actine, une protéine. Le cytoplasme s’écoule donc à l’intérieur du plasmode.}\\
+{Le blob secrète un mucus qui le protège contre l’assèchement  mais a aussi un rôle répulsif qui lui évite d'explorer deux fois la même piste. Cette mémoire spatiale lui permet de se déplacer à \(1 cm/h\). Le \textit{Physarum Polycephalum} ne passe pas deux fois au même endroit, il s’en souvient donc \cite{futura}.}\\
+{Cet être unicellulaire est donc doté d’une capacité de réflexion et d'apprentissage incroyable. 
+Il est même capable de transmettre ses connaissances et informations à d’autres congénères en fusionnant momentanément avec eux. 
+Ce sont des chercheurs du CNRS qui ont découvert cela en modélisant la situation avec 4000 individus (avec nos moyens, il était évidemment impensable de réaliser une telle expérience) répartis en deux groupes distincts, un groupe H et un groupe N (H pour habitué et N pour naif).
+Les individus du groupe H sont entraînés à réprimer leur répulsion naturelle pour des substances inoffensives comme le sel pour aller chercher leur nourriture de l'autre côté d'un pont qui en est recouvert ; ceux du groupe N doivent seulement traverser un pont dépourvu de ces substances. Ensuite, on met des individus de chaque groupe dans la même situation, consistant à devoir traverser un pont recouvert de sel pour aller chercher leur nourriture : on constate que les individus du groupe H sont bien plus rapides à la tâche.
+Dans un deuxième temps, on crée des couples HH, HN et NN, et on les met à nouveau ensemble dans cette situation. On constate alors que, pour aller chercher leur nourriture, les individus N qui étaient associés à des individus H sont aussi rapides qu'eux ; ils sont beaucoup plus rapides que les autres individus N. Enfin, on recommence en séparant les couples soit une heure soit trois heures après les avoir laissés fusionner, puis seulement après on soumet les individus à nouveau à l'épreuve du pont de sel. Dans ce cas, on constate que, parmi les N qui ont fusionné avec un H, seuls ceux qui ont fusionné pendant trois heures sont aussi rapides que des H. On en déduit donc que les individus du groupe H ont transmi leurs connaissances aux individus du groupe N qui possèdent donc à présent les mêmes connaissances qu’eux et sont donc aussi rapides à réaliser l'expérience.}\\
+{À partir de là, nous avons validé notre hypothèse sur sa capacité à trouver le chemin le plus court. Nous pouvons donc mettre tous nos résultats en informatique avec la modélisation de son intelligence par des programmes mathématiques.}
+
+\section{Modélisation de l'intelligence artificielle}
+
+\subsection{L'algorithme}
+
+{Afin de modéliser le comportement du blob dans notre labyrinthe sous forme informatique nous avons commencé nos recherches pour créer un programme. Nous avons donc cherché des algorithmes de résolution de labyrinthe qui pourraient correspondre au plus près à ce que nous avions observé du blob afin de reproduire son comportement. 
+Après quelques recherches nous avons découvert A* (prononcé A-star ou A-étoile en français), un algorithme de recherche de chemin simple et rapide. Nous avons donc décidé de nous intéresser à celui-ci. 
+A* est un algorithme proposé pour la première fois par Peter \textsc{E.Hart}, Nils John \textsc{Nilsson} et Bertram \textsc{Rapahel} en 1968  permettant de rechercher un chemin dans un graphe, c’est à dire un modèle reliant différents objets entre eux nommés « nœuds ». Le principe de fonctionnement de cet algorithme est le suivant : l’algorithme doit trouver un chemin vers le nœud de sortie qui minimise le « coût », c’est-à-dire la distance la plus faible. AÀ chaque itération, l’algorithme a besoin de déterminer sur lequel de ses chemins disponibles il doit s’étendre. Il choisit à l’aide du coût du parcours ainsi que sur une estimation coût du parcours. 
+Concrètement A* minimise la relation \(f(n)=g(n)+h(n)\) où \(n\) est le prochain nœud sur le chemin, \(g(n)\) est la distance du nœud de départ à \(n\) et \(h(n)\) est l’estimation de la distance de \(n\) au nœud d’arrivée appelée « heuristique ». L’expression de l’heuristique est \(|x_A-x_ B|+|y_A-y_B|\)  et celle de la distance réelle est \(\sqrt{x_A-x _B)^2+(y_A-y_B)^2}\)}\\
+{Sur le schéma ci-dessous, nous voyons en vert la case de départ, en rouge la case d’arrivée et en noir les murs.}
+
+\begin{figure}[H]
+    \centering
+    \includeimage[height=5cm]{astar.png}
+    \caption{Schématisation de l'algorithme A*}
+\end{figure}
+
+{L’algorithme parcourt ses cases adjacentes et calcule alors \(f(n)\), ensuite il décide de continuer le chemin où cette valeur est la plus faible. Dans ce cas de labyrinthe simplifié l’algorithme calcule d’abord \(f(n)\) pour ses nœuds adjacents et continue puisqu’ils ont la même valeur jusqu’à trouver un nœud avec un \(f(n)\) plus faible.}
+
+\subsection{Programmation}
+
+{Pour utiliser cet algorithme nous avons donc décidé de le programmer en Node.js, qui est un environnement d'exécution JavaScript. Nous avons choisi d’utiliser Node.js de part notre connaissance du langage JavaScript ainsi que sa simplicité d’utilisation et sa rapidité d'exécution. De là a commencé notre démarche: nous avons utilisé l’environnement intelligent de développement WebStorm afin de développer notre interprétation de l’algorithme. }
+
+\begin{figure}[H]
+    \centering
+    \includeimage[height=10cm]{webstorm.png}
+    \caption{Capture d'écran de l'environnement intelligent de développement WebStorm}
+\end{figure}
+
+{Nous avons aussi intégré Git qui est un gestionnaire de versions décentralisé, c’est à dire qu’en utilisant Git nous pouvons travailler tous ensemble à notre rythme sans supprimer nos travaux entre nous. Nous avons donc créé notre dépôt et commencé à programmer.
+Après de longues heures de travail nous avons réussi à créer une première version du programme fonctionnant avec une matrice de 0 et de 1 pour définir le labyrinthe.}\\
+{Par la suite nous avons ajouté une fonctionnalité qui permet de créer cette matrice à partir d’une image avec en noir les murs et en blanc les espaces vides. Nous avons aussi ajouté la génération d’une image à la fin de l’exécution de l’algorithme qui nous indique le chemin qu’il a choisi.}
+
+\begin{figure}[H]
+    \centering
+    \includeimage[height=5cm]{maze1.png}
+    \includeimage[height=5cm]{maze2.png}
+    \caption{Image donnée à l'algorithme ainsi que l'image générée où le labyrinthe est résolu}
+\end{figure}
+
+{Lors du démarrage du programme, il prend automatiquement l’image se situant dans le dossier res (raccourci pour ressources) nommée “maze.png” (maze pour labyrinthe, on écrit généralement en anglais dans les programmes par convention et png est tout simplement un format d’image comme le JPEG par exemple). Dans le même laps de temps il crée un tableau multidimensionnel où il place pixels par pixels un 0 ou un 1 si le pixel est noir ou blanc. Ensuite il place dans deux variables distinctes les coordonnées des pixels rouges qui sont les sorties ou entrées du labyrinthe. 
+De plus, nous initialisons  un « set » (ou ensemble en français) nommé « open set » qui contient toutes les cases explorées, nous lui ajoutons donc la case de départ. Le reste du code est contenu dans une boucle qui s’exécute tant que cet ensemble n’est pas vide. 
+Premièrement nous prenons le nœud de l’open set qui a le \(f(n)\) le plus faible et on le nomme « current » (current qui veut dire actuel pour nœud actuel en français). Puis nous vérifions si le nœud actuel est le nœud d’arrivée pour ne pas avoir à continuer la boucle si nous sommes déjà arrivés. Ensuite nous parcourons les nœuds qui ne sont pas dans l’open set du voisinage (« neighbourhood » dans le programme). Puis nous calculons \(f(n)\) pour les nœuds du voisinage qui n’ont pas étés encore explorés et nous l’ajoutons à l’open set. Et enfin la boucle se réitère jusqu’à trouver la sortie. Une fois la sortie trouvée nous faisons le chemin inverse en récupérant le nœud parent (Le nœud où l’algorithme était précédemment) du nœud parent et ainsi de suite jusqu’à remonter au nœud de départ. Après avoir obtenu le chemin parcouru nous « imprimons » sur l’image avec des pixels bleus.}\\
+{Afin de prouver le bon fonctionnement du programme nous avons décidé de le tester sur d’autres labyrinthe pour montrer qu’il ne fonctionne pas qu’avec le nôtre. }
+
+\section*{Conclusion}
+
+{Ces quelques semaines de recherches et d'expérimentations nous ont permi d’apprendre à travailler en groupe autour d’une thématique commune afin de répondre à une problématique scientifique tout en partant de zéro.}\\
+{C’est un travail qui demande beaucoup de réflexion et d’application durant les heures dédiées et hors scolaires ainsi que de nombreuses remises en question sur les choix effectués. Il nous aura fallu un mois avant d’arriver à un sujet qui nous intéressait réellement et avec lequel nous pourrions arriver à construire un TPE correspondant et répondant à nos attentes.  
+Nous pensons maintenant, arrivant à la fin de la rédaction de ce dossier, avoir répondu pleinement à notre problématique de façon claire et précise en reprenant chaque élément qui la composait.}\\
+{Les différentes expériences et analyses effectuées sur le \textit{Physarum Polycephalum} nous ont prouvé que cette créature, cet être vivant, est bel est bien doté d’un comportement modélisable grâce à l’outil informatique sous forme de programme. Ce comportement est défini par l’ensemble des actions et réactions de l’individu dans un endroit défini, en l'occurrence ici dans un labyrinthe.
+Pour en arriver à une telle conclusion il aura fallu nous armer de patience.
+Tout d’abord, cultiver cet être de la meilleure façon possible. Ensuite il  nous a amené  à résoudre certains problèmes qui se sont présenté à nous au fur et à mesure de son évolution.
+Les problèmes de culture nous ont fait nous remettre en question sur notre TPE tout entier, si nous n’avions pas réussi à le cultiver, notre TPE aurait été bien moins intéressant et nous aurions perdu beaucoup de confiance en nous. L’aspect psychologique est très important dans un travail comme celui-ci.}\\
+{La conception du labyrinthe et la réalisation de notre expérience nous ont prouvé que ce dernier arrive à relier deux points, deux sorties, en choisissant le chemin le plus court s'offrant à lui lorsque un choix s’impose. Cette expérience nous aura même prouvé que le Physarum Polycephalum ne passe pas deux fois au même endroit dans le labyrinthe et qu’une fois son choix opéré, ce dernier se focalise sur le chemin le plus court où il va concentrer son développement sans se soucier des autres chemins qui ne lui sont pas utiles dans sa quête de nourriture et de développement.}\\
+
+{Pouvons nous pour autant en conclure que le comportement du \textit{Physarum Polycephalum} est modélisable ?
+Au regard de nos expériences, la réponse est oui .}\\
+
+{Pour aller plus loin, cette modeste modélisation fait écho aux nombreuses tentatives de mise en place de formes d’intelligences artificielles dans notre environnement moderne.}
+
+\printbibliography
+
+\end{document}
